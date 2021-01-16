@@ -1,4 +1,10 @@
-//Ceate a new variable Pet. 
-const Pet = new Pet("Fido");
+function Pet(name) {
+    this.name = name;
+};
 
-module.exports = pet; 
+
+
+
+
+module.exports = Pet;
+
