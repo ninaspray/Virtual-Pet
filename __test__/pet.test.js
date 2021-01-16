@@ -1,6 +1,9 @@
 const Pet = require("../src/pet");
 
+
 const pet = new Pet("Fido");
+const MAXIMUM_FITNESS = 10;
+const MINIMUM_HUNGER = 0;
 
 
 //Return the pet as an object. 
@@ -63,3 +66,45 @@ describe("Pet becomes older and less fit", () => {
         expect(pet.fitness).toBe(7);
     });
 })
+
+//Create a function called walk that increases the pets fitness level.
+//Pets fitness level should never go above 10. 
+
+describe("Walk", () => {
+    it("icrements the pets fitness level", () => {
+        pet.walk();
+        expect(pet.fitness).toEqual(MAXIMUM_FITNESS);
+    });
+});
+
+describe("Feed", () => {
+    it("decreases the pets hunger levels", () => {
+        pet.feed();
+        expect(pet.hunger).toEqual(MINIMUM_HUNGER);
+    });
+});
+
+
+//Check Up - if the pet's fitness is 3 or less, it should return 'I need a walk'.
+
+describe("Check Up", () => {
+    it("Pet lets you know how it needs a walk", () => {
+        const pet = new Pet("Fido");
+        pet.fitness = 3;
+        pet.CheckUp();
+        expect(pet.CheckUp()).toBe("I need a walk");
+    });
+    it("Pet lets you know it's hungry", () => {
+        const pet = new Pet("Fido");
+        pet.hunger = 6;
+        pet.CheckUp();
+        expect(pet.CheckUp()).toBe("I am hungry");
+    });
+    it("Pet lets you know it's hungry and needs a walk", () => {
+        const pet = new Pet("Fido");
+        pet.fitness = 2
+        pet.hunger = 6
+        pet.CheckUp();
+        expect(pet.CheckUp()).toBe("I am hungry and I need a walk");
+    });
+});
