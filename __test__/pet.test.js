@@ -1,3 +1,4 @@
+const { TestScheduler } = require("jest");
 const Pet = require("../src/pet");
 
 
@@ -98,10 +99,44 @@ describe("Check Up", () => {
         pet.hunger = 6
         expect(pet.CheckUp()).toBe("I am hungry");
     });
-    it("Pet lets you know it's hungry and needs a walk", () => {
+    xit("Pet lets you know it's hungry and needs a walk", () => {
         const pet = new Pet("Fido");
         pet.fitness = 2;
         pet.hunger = 5;
         expect(pet.CheckUp()).toBe("I am hungry and I need a walk");
     });
+});
+
+describe("Is Alive", () => {
+    it("Your pet is alive", () => {
+        const pet = new Pet("Fido");
+        expect(pet.isAlive).toBe(true);
+    });
+    it("Your pet isn't alive", () => {
+        const pet = new Pet("Fido");
+        pet.age = 30
+        expect(pet.isAlive).toBe(false);
+    });
+    it("If pets hunger is above 10 it should return false", () => {
+        const pet = new Pet("Fido");
+        pet.hunger = 30
+        expect(pet.isAlive).toBe(false);
+    });
+    it("Error Message Appears", () => {
+        const pet = new Pet("Fido");
+        pet.age = 32
+        pet.CheckUp;
+        pet.isAlive;
+
+        expect(() => pet.feed()).toThrow("Your pet is no longer alive :(");
+    });
+    it("Error Message Appears", () => {
+        const pet = new Pet("Fido");
+        pet.age = 32
+        pet.CheckUp;
+        pet.isAlive;
+
+        expect(() => pet.walk()).toThrowErrorMatchingSnapshot("Your pet is no longer alive :(");
+    });
+
 });
