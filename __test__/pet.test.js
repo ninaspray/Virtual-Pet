@@ -90,21 +90,18 @@ describe("Feed", () => {
 describe("Check Up", () => {
     it("Pet lets you know how it needs a walk", () => {
         const pet = new Pet("Fido");
-        pet.fitness = 3;
-        pet.CheckUp();
+        pet.fitness = 3
         expect(pet.CheckUp()).toBe("I need a walk");
     });
     it("Pet lets you know it's hungry", () => {
         const pet = new Pet("Fido");
-        pet.hunger = 6;
-        pet.CheckUp();
+        pet.hunger = 6
         expect(pet.CheckUp()).toBe("I am hungry");
     });
     it("Pet lets you know it's hungry and needs a walk", () => {
         const pet = new Pet("Fido");
-        pet.fitness = 2
-        pet.hunger = 6
-        pet.CheckUp();
+        pet.fitness = 2;
+        pet.hunger = 5;
         expect(pet.CheckUp()).toBe("I am hungry and I need a walk");
     });
 });

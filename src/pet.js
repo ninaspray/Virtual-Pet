@@ -1,6 +1,7 @@
 const MAXIMUM_FITNESS = 10;
 const MINIMUM_HUNGER = 0;
 
+
 function Pet(name, age, hunger, fitness) {
     this.name = name;
     this.age = 0;
@@ -32,28 +33,33 @@ Pet.prototype = {
             this.hunger = MINIMUM_HUNGER;
         }
     },
-    CheckUp() {
-        if (this.fitness <= 3) {
-            return ("I need a walk");
-        }
-        if (this.hunger >= 5) {
-            return ("I am hungry");
-        }
-        if (this.fitness <= 3 && this.hunger >= 5) {
-            return ("I am hungry and I need a walk");
-        }
-    }
 
-};
+    CheckUp() {
+        const HUNGRY_PET = (this.hunger >= 5);
+        const UNFIT_PET = (this.fitness <= 3);
+
+        if (UNFIT_PET) {
+            return "I need a walk";
+        }
+        if (HUNGRY_PET) {
+            return "I am hungry";
+        }
+        if (HUNGRY_PET && UNFIT_PET); {
+            return "I am hungry and I need a walk";
+        }
+        if (!HUNGRY_PET && !UNFIT_PET) {
+            return "I feel great!"
+        }
+    },
+}
+
+
 
 
 
 //adding a prototype function means each object of the same type should behave the same.
 
-
-
 module.exports =
     Pet,
     MAXIMUM_FITNESS,
     MINIMUM_HUNGER;
-
