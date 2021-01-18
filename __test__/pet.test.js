@@ -108,6 +108,13 @@ describe("Check Up", () => {
         console.log(pet.fitness, pet.hunger);
         expect(pet.CheckUp()).toBe("I am hungry and I need a walk");
     });
+    it("Pet lets you know it's great", () => {
+        const pet = new Pet("Fido");
+        pet.fitness = 8;
+        pet.hunger = 2;
+        console.log(pet.fitness, pet.hunger);
+        expect(pet.CheckUp()).toBe("I feel great!");
+    });
 });
 
 describe("Is Alive", () => {
