@@ -73,6 +73,8 @@ describe("Pet becomes older and less fit", () => {
 
 describe("Walk", () => {
     it("icrements the pets fitness level", () => {
+        const pet = new Pet("Fido");
+        pet.fitness = 8;
         pet.walk();
         expect(pet.fitness).toEqual(MAXIMUM_FITNESS);
     });
@@ -99,10 +101,11 @@ describe("Check Up", () => {
         pet.hunger = 6
         expect(pet.CheckUp()).toBe("I am hungry");
     });
-    xit("Pet lets you know it's hungry and needs a walk", () => {
+    it("Pet lets you know it's hungry and needs a walk", () => {
         const pet = new Pet("Fido");
         pet.fitness = 2;
-        pet.hunger = 5;
+        pet.hunger = 7;
+        console.log(pet.fitness, pet.hunger);
         expect(pet.CheckUp()).toBe("I am hungry and I need a walk");
     });
 });

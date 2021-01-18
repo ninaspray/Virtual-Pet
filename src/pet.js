@@ -49,19 +49,19 @@ Pet.prototype = {
         const HUNGRY_PET = (this.hunger >= 5);
         const UNFIT_PET = (this.fitness <= 3);
 
-        if (UNFIT_PET) {
-            return "I need a walk"
+        if (HUNGRY_PET && UNFIT_PET) {
+            return ("I am hungry and I need a walk")
         }
-        if (HUNGRY_PET) {
+        else if (HUNGRY_PET) {
             return "I am hungry"
         }
-        if (HUNGRY_PET && UNFIT_PET) {
-            throw ("I am hungry and I need a walk")
+        else if (UNFIT_PET) {
+            return "I need a walk"
         }
-        if (!HUNGRY_PET && !UNFIT_PET) {
+        else if (!HUNGRY_PET && !UNFIT_PET) {
             return "I feel great!"
         }
-        if (!this.isAlive) {
+        else {
             throw new Error("Your pet is no longer alive :(")
         }
     },
