@@ -8,6 +8,7 @@ function Pet(name, age, hunger, fitness, alive) {
     this.hunger = 0;
     this.fitness = 10;
     this.isAlive = alive;
+    this.children = [];
 };
 
 Pet.prototype = {
@@ -66,7 +67,14 @@ Pet.prototype = {
         }
     },
 
+    adoptChild() {
+        this.children.push(children);
+    },
 }
+
+
+
+
 
 
 

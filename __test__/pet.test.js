@@ -149,4 +149,20 @@ describe("Is Alive", () => {
         expect(() => pet.walk()).toThrowErrorMatchingSnapshot("Your pet is no longer alive :(");
     });
 
+
+
+});
+
+describe("Adopt Child", () => {
+    it("pet has an initial number of children = 0", () => {
+        const pet = new Pet("Fido");
+        expect(pet.children).toEqual([]);
+    });
+    it("adds a child to the array of children", () => {
+        const pet = new Pet("Emmy");
+
+        pet.adoptChild(children);
+
+        expect(Pet.children[0].name).toEqual("Emmy");
+    });
 });
