@@ -67,10 +67,11 @@ Pet.prototype = {
         }
     },
 
-    adoptChild() {
-        this.children.push(children);
+   adoptChild (child){
+        this.children.push(child);
     },
-}
+    
+};
 
 
 

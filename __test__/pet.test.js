@@ -154,15 +154,11 @@ describe("Is Alive", () => {
 });
 
 describe("Adopt Child", () => {
-    it("pet has an initial number of children = 0", () => {
-        const pet = new Pet("Fido");
-        expect(pet.children).toEqual([]);
+    it("pet has an initial number of children (0) and adopts a child", () => {
+        const parent = new Pet ("Fido");
+        const child = new Pet("Emmy");
+        parent.adoptChild(child);
+        expect(parent.children[0]).toEqual(child);
     });
-    it("adds a child to the array of children", () => {
-        const pet = new Pet("Emmy");
 
-        pet.adoptChild(children);
-
-        expect(Pet.children[0].name).toEqual("Emmy");
-    });
 });
